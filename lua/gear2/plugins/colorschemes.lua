@@ -1,12 +1,5 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-    },
-    {
-        "rebelot/kanagawa.nvim",
-    },
-    {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
@@ -17,22 +10,18 @@ return {
                     transparency = true,
                 },
             })
+            vim.cmd("colorscheme rose-pine")
         end,
     },
     {
         "folke/tokyonight.nvim",
         priority = 1000,
         opts = {
-            transparent = true,
+            -- transparent = true,
             styles = {
-                sidebars = "transparent",
+                -- sidebars = "transparent",
                 floats = "bg",
             },
         },
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        config = true,
-        opts = ...,
     },
 }
