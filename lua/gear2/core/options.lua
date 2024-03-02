@@ -15,13 +15,16 @@ vo.autoindent = true
 
 vo.backspace = "indent,eol,start"
 
+-- Preview substitutions live, as you type!
+vo.inccommand = "split"
+
 vo.ignorecase = true -- ignore case when searching
 
 -- vo.cursorline = true -- enable cursor line
 
 -- Enable break indent
 vo.breakindent = true
---
+
 -- use system clipboard as default register
 vo.clipboard:append("unnamedplus")
 

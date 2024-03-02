@@ -21,6 +21,7 @@ return {
             opts.buffer = bufnr
 
             -- set keybinds
+            -- To jump back, press <C-T>.
             opts.desc = "Show LSP references"
             keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
