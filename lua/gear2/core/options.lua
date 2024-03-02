@@ -26,7 +26,7 @@ vo.breakindent = true
 vo.clipboard:append("unnamedplus")
 
 -- disable swap
-vim.opt.swapfile = false
+vo.swapfile = false
 
 -- Set completeopt to have a better completion experience
 vo.completeopt = "menuone,noselect"

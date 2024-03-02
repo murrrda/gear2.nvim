@@ -77,6 +77,10 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "cuda", "proto" },
+            cmd = {
+                "clangd",
+                "--fallback-style=WebKit",
+            },
         })
 
         lspconfig["bashls"].setup({

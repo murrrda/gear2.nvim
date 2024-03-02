@@ -33,7 +33,6 @@ return {
                 "html",
                 "cssls",
                 "tsserver",
-                "rust_analyzer",
                 "vuels",
                 "bashls",
                 "gopls",
