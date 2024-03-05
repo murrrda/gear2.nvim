@@ -31,6 +31,9 @@ vo.clipboard:append("unnamedplus")
 -- disable swap
 vo.swapfile = false
 
+-- disable backup
+vo.backup = false
+
 -- Set completeopt to have a better completion experience
 vo.completeopt = "menuone,noselect"
 
@@ -41,9 +44,9 @@ vo.scrolloff = 8
 vo.termguicolors = true
 
 -- force all horizontal splits to go below current window
-vim.opt.splitbelow = true
+vo.splitbelow = true
 -- force all vertical splits to go to the right of current window
-vim.opt.splitright = true
+vo.splitright = true
 
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
