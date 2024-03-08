@@ -1,4 +1,3 @@
-"<leader>gn" = global note toggle
 "gR" = show definiton, references
 "gD" = go to declaration
 "gd" = show lsp definitons
