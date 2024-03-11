@@ -1,2 +1,2 @@
-require("gear2.core.init")
+require("gear2.core")
 require("gear2.lazy")
