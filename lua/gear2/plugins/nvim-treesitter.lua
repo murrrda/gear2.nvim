@@ -10,7 +10,7 @@ return {
     },
     config = function()
         -- configure treesitter
-        require("nvim-treesitter.configs").setup({ -- enable syntax highlighting
+        require("nvim-treesitter.configs").setup({
             -- enable highlight
             highlight = {
                 enable = true,

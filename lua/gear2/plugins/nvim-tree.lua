@@ -10,9 +10,9 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
 
-        -- change color for arrows in tree to light blue
-        vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
-        vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
+        -- change color for arrows in tree to light green
+        vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#9CCFD8 ]])
+        vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#9CCFD8 ]])
 
         -- configure nvim-tree
         nvimtree.setup({
@@ -42,16 +42,11 @@ return {
                     },
                 },
             },
-            filters = {
-                custom = { ".DS_Store" },
-            },
             git = {
                 ignore = false,
             },
         })
 
-        -- set keymaps
-        local keymap = vim.keymap -- for conciseness
-        vim.api.nvim_set_keymap("n", "<C-f>", ":NvimTreeToggle<CR>", { noremap = true })
+        vim.keymap.set("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { noremap = true })
     end,
 }
