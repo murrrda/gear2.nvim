@@ -14,6 +14,9 @@ vim.keymap.set("", "<Down>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("", "<Left>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("", "<Right>", "<Nop>", { noremap = true, silent = true })
 
+vim.keymap.set("n", "go", "o<Esc>o")
+vim.keymap.set("n", "gO", "o<Esc>o<Esc>O")
+
 -- err != nill keymap for Go dev
 vim.keymap.set("n", "<leader>ir", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>jo<Esc>")
 
