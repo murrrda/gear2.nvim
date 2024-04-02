@@ -5,7 +5,7 @@ vo.number = true
 vo.relativenumber = true
 
 -- cursor block in insert mode
-vo.guicursor = "a:Block"
+-- vo.guicursor = "a:Block"
 
 -- set tab = 4 spaces
 vo.softtabstop = 4
