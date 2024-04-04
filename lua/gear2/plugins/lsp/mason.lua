@@ -22,6 +22,10 @@ return {
                     package_uninstalled = "✗",
                 },
             },
+            registries = {
+                "github:nvim-java/mason-registry",
+                "github:mason-org/mason-registry",
+            },
         })
 
         mason_lspconfig.setup({
@@ -36,9 +40,15 @@ return {
                 "vuels",
                 "bashls",
                 "gopls",
+                "jdtls",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
+            handlers = {
+                ["jdtls"] = function()
+                    require("java").setup()
+                end,
+            },
         })
 
         mason_tool_installer.setup({

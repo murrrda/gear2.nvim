@@ -10,7 +10,6 @@ return {
                     transparency = true,
                 },
             })
-            vim.cmd.colorscheme("rose-pine-moon")
         end,
     },
     {
@@ -20,6 +19,7 @@ return {
         config = function()
             -- Load the colorscheme here
 
+            vim.cmd.colorscheme("tokyonight-night")
             -- You can configure highlights by doing something like
             vim.cmd.hi("Comment gui=none")
         end,

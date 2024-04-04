@@ -40,6 +40,7 @@ return {
                 "html",
                 "css",
                 "bash",
+                "java",
                 "go",
             },
             incremental_selection = {
