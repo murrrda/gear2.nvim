@@ -4,9 +4,6 @@ local vo = vim.opt
 vo.number = true
 vo.relativenumber = true
 
--- cursor block in insert mode
--- vo.guicursor = "a:Block"
-
 -- set tab = 4 spaces
 vo.softtabstop = 4
 vo.shiftwidth = 4
@@ -15,18 +12,23 @@ vo.autoindent = true
 
 vo.backspace = "indent,eol,start"
 
--- Preview substitutions live, as you type!
+-- Preview substitutions live, as you type
 vo.inccommand = "split"
 
 vo.ignorecase = true -- ignore case when searching
 
--- vo.cursorline = true -- enable cursor line
+vo.undofile = true
+
+vo.signcolumn = "yes"
+
+vo.updatetime = 250
+vo.timeoutlen = 300
 
 -- Enable break indent
 vo.breakindent = true
 
 -- use system clipboard as default register
-vo.clipboard:append("unnamedplus")
+vo.clipboard = "unnamedplus"
 
 -- disable swap
 vo.swapfile = false
@@ -38,7 +40,7 @@ vo.backup = false
 vo.completeopt = "menuone,noselect"
 
 -- number of screen lines to keep above and below the cursor.
-vo.scrolloff = 8
+vo.scrolloff = 10
 
 -- better colors
 vo.termguicolors = true
