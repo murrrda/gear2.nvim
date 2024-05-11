@@ -50,6 +50,10 @@ vo.splitbelow = true
 -- force all vertical splits to go to the right of current window
 vo.splitright = true
 
+-- Sets how neovim will display certain whitespace characters in the editor.
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
