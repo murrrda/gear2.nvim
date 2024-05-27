@@ -22,3 +22,5 @@ vim.keymap.set("n", "<leader>ir", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>jo<
 
 -- remove highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+vim.keymap.set("n", "-", "<cmd>NvimTreeToggle<CR>", { noremap = true })

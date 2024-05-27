@@ -7,6 +7,7 @@ return {
 
         conform.setup({
             formatters_by_ft = {
+                cpp = { "clangformat" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 vue = { "prettier" },

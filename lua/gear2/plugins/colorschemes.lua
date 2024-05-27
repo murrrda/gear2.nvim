@@ -7,11 +7,11 @@ return {
                 styles = {
                     bold = true,
                     italic = true,
-                    transparency = false,
+                    transparency = true,
                 },
             })
             -- Load the colorscheme here
-            -- vim.cmd.colorscheme("rose-pine-dawn")
+            -- vim.cmd.colorscheme("rose-pine-moon")
         end,
     },
     {

@@ -1,5 +1,6 @@
 return {
     "nvim-java/nvim-java",
+    event = "VeryLazy",
     dependencies = {
         "nvim-java/lua-async-await",
         "nvim-java/nvim-java-refactor",

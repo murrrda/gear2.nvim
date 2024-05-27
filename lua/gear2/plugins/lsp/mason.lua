@@ -32,7 +32,6 @@ return {
             -- list of servers for mason to install
             ensure_installed = {
                 "clangd",
-                "pyright",
                 "lua_ls",
                 "html",
                 "cssls",
@@ -55,9 +54,7 @@ return {
             ensure_installed = {
                 "prettier", -- prettier formatter
                 "stylua", -- lua formatter
-                "isort", -- python formatter
-                "black", -- python formatter
-                "pylint", -- python linter
+                "clang-format", -- c++ formatter
                 "eslint_d", -- js linter
                 "golangci-lint", -- go linter
             },

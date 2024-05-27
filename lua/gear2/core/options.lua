@@ -21,11 +21,10 @@ vo.undofile = true
 
 vo.signcolumn = "yes"
 
-vo.updatetime = 250
-vo.timeoutlen = 300
-
 -- Enable break indent
 vo.breakindent = true
+
+-- vo.cursorline = true
 
 -- use system clipboard as default register
 vo.clipboard = "unnamedplus"
