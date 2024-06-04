@@ -32,11 +32,11 @@ return {
             -- list of servers for mason to install
             ensure_installed = {
                 "clangd",
+                "tailwindcss",
                 "lua_ls",
                 "html",
-                "cssls",
                 "tsserver",
-                "vuels",
+                "volar",
                 "bashls",
                 "gopls",
                 "jdtls",

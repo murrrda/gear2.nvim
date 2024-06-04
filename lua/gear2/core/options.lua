@@ -35,6 +35,9 @@ vo.swapfile = false
 -- disable backup
 vo.backup = false
 
+-- enable spell checker
+vo.spell = true
+
 -- Set completeopt to have a better completion experience
 vo.completeopt = "menuone,noselect"
 

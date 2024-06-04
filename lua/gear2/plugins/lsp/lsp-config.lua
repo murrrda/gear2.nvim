@@ -69,7 +69,7 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["cssls"].setup({
+        lspconfig["tailwindcss"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -86,11 +86,6 @@ return {
         })
 
         lspconfig["bashls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig["pyright"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -120,9 +115,17 @@ return {
             },
         })
 
-        lspconfig["vuels"].setup({
+        lspconfig["volar"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+            init_options = {
+                typescript = {
+                    tsdk = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
+                    -- Alternative location if installed as root:
+                    -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+                },
+            },
         })
 
         lspconfig["rust_analyzer"].setup({
@@ -135,9 +138,21 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["tsserver"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- require("lspconfig").tsserver.setup({
+        --     init_options = {
+        --         plugins = {
+        --             {
+        --                 name = "@vue/typescript-plugin",
+        --                 location = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
+        --                 languages = { "javascript", "typescript", "vue" },
+        --             },
+        --         },
+        --     },
+        --     filetypes = {
+        --         "javascript",
+        --         "typescript",
+        --         "vue",
+        --     },
+        -- })
     end,
 }

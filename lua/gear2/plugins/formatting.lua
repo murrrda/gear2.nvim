@@ -17,7 +17,6 @@ return {
                 yaml = { "prettier" },
                 markdown = { "prettier" },
                 lua = { "stylua" },
-                python = { "isort", "black" },
                 go = { "gofmt", "goimports-reviser" },
             },
             format_on_save = {
