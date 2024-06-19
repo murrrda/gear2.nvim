@@ -36,10 +36,12 @@ vo.swapfile = false
 vo.backup = false
 
 -- enable spell checker
-vo.spell = true
+-- vo.spell = true
 
 -- Set completeopt to have a better completion experience
 vo.completeopt = "menuone,noselect"
+
+vo.updatetime = 400
 
 -- number of screen lines to keep above and below the cursor.
 vo.scrolloff = 10

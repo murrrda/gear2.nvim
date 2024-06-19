@@ -3,7 +3,7 @@ return {
     version = "*",
     config = function()
         require("toggleterm").setup({
-            open_mapping = [[<c-t>]],
+            open_mapping = [[<c-`>]],
             direction = "horizontal",
             persist_size = false,
             auto_scroll = true, -- automatically scroll to the bottom on terminal output
