@@ -7,6 +7,7 @@ return {
 
         conform.setup({
             formatters_by_ft = {
+                cpp = { "clangformat" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 vue = { "prettier" },
@@ -16,8 +17,7 @@ return {
                 yaml = { "prettier" },
                 markdown = { "prettier" },
                 lua = { "stylua" },
-                python = { "isort", "black" },
-                go = { "gofmt" },
+                go = { "gofmt", "goimports-reviser" },
             },
             format_on_save = {
                 lsp_fallback = true,

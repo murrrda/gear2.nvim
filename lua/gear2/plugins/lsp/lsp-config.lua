@@ -53,6 +53,40 @@ return {
             keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
         end
 
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+            callback = function(event)
+                -- The following two autocommands are used to highlight references of the
+                -- word under your cursor when your cursor rests there for a little while.
+                --    See `:help CursorHold` for information about when this is executed
+                --
+                -- When you move your cursor, the highlights will be cleared (the second autocommand).
+                local client = vim.lsp.get_client_by_id(event.data.client_id)
+                if client and client.server_capabilities.documentHighlightProvider then
+                    local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+                    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                        buffer = event.buf,
+                        group = highlight_augroup,
+                        callback = vim.lsp.buf.document_highlight,
+                    })
+
+                    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                        buffer = event.buf,
+                        group = highlight_augroup,
+                        callback = vim.lsp.buf.clear_references,
+                    })
+
+                    vim.api.nvim_create_autocmd("LspDetach", {
+                        group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+                        callback = function(event2)
+                            vim.lsp.buf.clear_references()
+                            vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+                        end,
+                    })
+                end
+            end,
+        })
+
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -69,7 +103,7 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["cssls"].setup({
+        lspconfig["tailwindcss"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -77,9 +111,10 @@ return {
         lspconfig["clangd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "cuda", "proto" },
             cmd = {
                 "clangd",
+                "--clang-tidy",
+                "--malloc-trim",
                 "--fallback-style=WebKit",
             },
         })
@@ -89,7 +124,7 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["pyright"].setup({
+        lspconfig["jdtls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -114,9 +149,17 @@ return {
             },
         })
 
-        lspconfig["vuels"].setup({
+        lspconfig["volar"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+            init_options = {
+                typescript = {
+                    tsdk = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
+                    -- Alternative location if installed as root:
+                    -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+                },
+            },
         })
 
         lspconfig["rust_analyzer"].setup({
@@ -129,9 +172,21 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["tsserver"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- require("lspconfig").tsserver.setup({
+        --     init_options = {
+        --         plugins = {
+        --             {
+        --                 name = "@vue/typescript-plugin",
+        --                 location = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
+        --                 languages = { "javascript", "typescript", "vue" },
+        --             },
+        --         },
+        --     },
+        --     filetypes = {
+        --         "javascript",
+        --         "typescript",
+        --         "vue",
+        --     },
+        -- })
     end,
 }

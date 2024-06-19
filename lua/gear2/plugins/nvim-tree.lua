@@ -45,8 +45,22 @@ return {
             git = {
                 ignore = false,
             },
+
+            on_attach = function(bufnr)
+                local api = require("nvim-tree.api")
+
+                -- Default mappings
+                api.config.mappings.default_on_attach(bufnr)
+
+                -- Custom mappings
+                local function opts(desc)
+                    return { desc = "nvim-tree: " .. desc, buffer = bufnr, silent = true, nowait = true }
+                end
+                vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+                vim.keymap.set("n", "-", api.tree.close, opts("Close"))
+            end,
         })
 
-        vim.keymap.set("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { noremap = true })
+        vim.keymap.set("n", "-", "<cmd>NvimTreeToggle<CR>", { noremap = true })
     end,
 }

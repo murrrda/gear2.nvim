@@ -15,7 +15,7 @@ return {
         -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
         -- - sd'   - [S]urround [D]elete [']quotes
         -- - sr)'  - [S]urround [R]eplace [)] [']
-        require("mini.surround").setup()
+        -- require("mini.surround").setup()
 
         -- ... and there is more!
         --  Check out: https://github.com/echasnovski/mini.nvim
