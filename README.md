@@ -4,9 +4,10 @@
 <a href="https://dotfyle.com/murrrda/gearnvim"><img src="https://dotfyle.com/murrrda/gearnvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/murrrda/gearnvim"><img src="https://dotfyle.com/murrrda/gearnvim/badges/plugin-manager?style=flat" /></a>
 
+
 ## Install Instructions
 
-> Install requires Neovim 0.9+. Always review the code before installing a configuration.
+ > Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -24,86 +25,88 @@ NVIM_APPNAME=murrrda/gear2.nvim/ nvim
 
 ### color
 
-- [NvChad/nvim-colorizer.lua](https://dotfyle.com/plugins/NvChad/nvim-colorizer.lua)
-
++ [NvChad/nvim-colorizer.lua](https://dotfyle.com/plugins/NvChad/nvim-colorizer.lua)
 ### colorscheme
 
-- [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
-- [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
-
++ [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
++ [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
++ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 ### comment
 
-- [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
-
++ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
++ [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 ### completion
 
-- [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
++ [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+### debugging
 
++ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
 ### editing-support
 
-- [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-- [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
++ [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
++ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
+### file-explorer
 
++ [nvim-tree/nvim-tree.lua](https://dotfyle.com/plugins/nvim-tree/nvim-tree.lua)
 ### formatting
 
-- [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
-
++ [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
 ### fuzzy-finder
 
-- [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
++ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+### icon
 
-### indent
-
-- [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
-
++ [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
 ### lsp
 
-- [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
-- [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-- [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
-
++ [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
++ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
++ [stevearc/aerial.nvim](https://dotfyle.com/plugins/stevearc/aerial.nvim)
++ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 ### lsp-installer
 
-- [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
-
++ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 ### nvim-dev
 
-- [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
++ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 ### plugin-manager
 
-- [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
++ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
 ### snippet
 
-- [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
-- [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
-
++ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
++ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 ### statusline
 
-- [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
-
++ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
 ### syntax
 
-- [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-- [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
++ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
++ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+### terminal-integration
 
++ [akinsho/toggleterm.nvim](https://dotfyle.com/plugins/akinsho/toggleterm.nvim)
 ### utility
 
-- [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
-- [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
++ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
++ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
+### web-development
 
++ [luckasRanarison/tailwind-tools.nvim](https://dotfyle.com/plugins/luckasRanarison/tailwind-tools.nvim)
 ## Language Servers
 
-- bashls
-- clangd
-- cssls
-- gopls
-- html
-- lua_ls
-- pyright
-- rust_analyzer
-- tsserver
-- vuels
++ bashls
++ clangd
++ gopls
++ html
++ jdtls
++ lua_ls
++ rust_analyzer
++ tailwindcss
++ tsserver
++ volar
 
-This readme was generated by [Dotfyle](https://dotfyle.com)
+
+ This readme was generated by [Dotfyle](https://dotfyle.com)
