@@ -17,7 +17,7 @@ return {
                 yaml = { "prettier" },
                 markdown = { "prettier" },
                 lua = { "stylua" },
-                go = { "gofmt", "goimports-reviser" },
+                go = { "gofmt" },
             },
             format_on_save = {
                 lsp_fallback = true,

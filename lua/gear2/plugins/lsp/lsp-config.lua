@@ -88,28 +88,22 @@ return {
         })
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local def_capabilities = cmp_nvim_lsp.default_capabilities()
 
         -- Change the Diagnostic symbols in the sign column (gutter)
-        -- (not in youtube nvim video)
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        lspconfig["html"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
         lspconfig["tailwindcss"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
         })
 
         lspconfig["clangd"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
             cmd = {
                 "clangd",
@@ -120,17 +114,17 @@ return {
         })
 
         lspconfig["bashls"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
         })
 
         lspconfig["jdtls"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
         })
 
         lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
             settings = { -- custom settings for lua
                 Lua = {
@@ -149,44 +143,40 @@ return {
             },
         })
 
+        local typescript_path = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib"
+        local vue_language_server_path = "/usr/lib64/node_modules/@vue/language-server"
+
         lspconfig["volar"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+            filetypes = { "vue" },
             init_options = {
+                vue = {
+                    hybridMode = false,
+                },
                 typescript = {
-                    tsdk = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
-                    -- Alternative location if installed as root:
-                    -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+                    tsdk = typescript_path,
                 },
             },
         })
 
-        lspconfig["rust_analyzer"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        lspconfig["tsserver"].setup({
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = vue_language_server_path,
+                        languages = { "javascript", "typescript", "vue" },
+                    },
+                },
+            },
+            filetypes = {
+                "javascript",
+                "typescript",
+            },
         })
 
         lspconfig["gopls"].setup({
-            capabilities = capabilities,
+            capabilities = def_capabilities,
             on_attach = on_attach,
         })
-
-        -- require("lspconfig").tsserver.setup({
-        --     init_options = {
-        --         plugins = {
-        --             {
-        --                 name = "@vue/typescript-plugin",
-        --                 location = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib",
-        --                 languages = { "javascript", "typescript", "vue" },
-        --             },
-        --         },
-        --     },
-        --     filetypes = {
-        --         "javascript",
-        --         "typescript",
-        --         "vue",
-        --     },
-        -- })
     end,
 }

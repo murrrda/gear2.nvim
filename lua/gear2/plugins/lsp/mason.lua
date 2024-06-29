@@ -34,7 +34,6 @@ return {
                 "clangd",
                 "tailwindcss",
                 "lua_ls",
-                "html",
                 "tsserver",
                 "volar",
                 "bashls",
@@ -52,7 +51,7 @@ return {
 
         mason_tool_installer.setup({
             ensure_installed = {
-                "prettier", -- prettier formatter
+                "prettier", -- js formatter
                 "stylua", -- lua formatter
                 "clang-format", -- c++ formatter
                 "eslint_d", -- js linter
