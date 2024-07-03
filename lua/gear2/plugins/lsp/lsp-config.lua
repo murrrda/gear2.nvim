@@ -84,8 +84,18 @@ return {
                         end,
                     })
                 end
+
+                if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+                    vim.keymap.set("n", "<leader>th", function()
+                        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                    end, { desc = "[T]oggle Inlay [H]ints", buffer = event.buf })
+                else
+                    print("No inlay_hint available")
+                end
             end,
         })
+
+        vim.lsp.inlay_hint.enable(true)
 
         -- used to enable autocompletion (assign to every lsp server config)
         local def_capabilities = cmp_nvim_lsp.default_capabilities()
@@ -145,12 +155,13 @@ return {
 
         local typescript_path = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib"
         local vue_language_server_path = "/usr/lib64/node_modules/@vue/language-server"
+        local typescript_plugin_path = "/usr/lib64/node_modules/@vue/typescript-plugin"
 
         lspconfig["volar"].setup({
-            filetypes = { "vue" },
+            filetypes = { "html", "vue" },
             init_options = {
                 vue = {
-                    hybridMode = false,
+                    hybridMode = true,
                 },
                 typescript = {
                     tsdk = typescript_path,
@@ -163,7 +174,7 @@ return {
                 plugins = {
                     {
                         name = "@vue/typescript-plugin",
-                        location = vue_language_server_path,
+                        location = typescript_plugin_path,
                         languages = { "javascript", "typescript", "vue" },
                     },
                 },
@@ -171,6 +182,7 @@ return {
             filetypes = {
                 "javascript",
                 "typescript",
+                "vue",
             },
         })
 

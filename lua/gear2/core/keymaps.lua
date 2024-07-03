@@ -18,7 +18,7 @@ vim.keymap.set("n", "go", "o<Esc>o")
 vim.keymap.set("n", "gO", "o<Esc>o<Esc>O")
 
 -- err != nill keymap for Go dev
-vim.keymap.set("n", "<leader>ir", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>jo<Esc>")
+vim.keymap.set("n", "<leader>ir", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 -- remove highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

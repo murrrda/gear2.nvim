@@ -5,7 +5,8 @@ vo.number = true
 vo.relativenumber = true
 
 -- set tab = 4 spaces
-vo.softtabstop = 4
+
+vo.tabstop = 4
 vo.shiftwidth = 4
 vo.expandtab = true
 vo.autoindent = true
@@ -55,8 +56,8 @@ vo.splitbelow = true
 vo.splitright = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
