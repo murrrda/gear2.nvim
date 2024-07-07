@@ -6,7 +6,7 @@ return {
         local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
         local colors = {
-            blue = "#9CCFD8",
+            blue = "#5390d9",
             green = "#E6FF94",
             violet = "#C4A7E7",
             yellow = "#ECB972",
@@ -16,43 +16,19 @@ return {
             inactive_bg = "#2c3043",
         }
 
-        local my_lualine_theme = {
-            normal = {
-                a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            insert = {
-                a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            visual = {
-                a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            command = {
-                a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            replace = {
-                a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            inactive = {
-                a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-                b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-                c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-            },
-        }
+        local custom_catpuccin = require("lualine.themes.catppuccin")
+        custom_catpuccin.normal.a.bg = colors.blue
+        custom_catpuccin.normal.a.fg = colors.bg
+        custom_catpuccin.normal.a.gui = "bold"
+        custom_catpuccin.normal.b.bg = colors.bg
+        custom_catpuccin.normal.b.fg = colors.fg
+        custom_catpuccin.normal.c.bg = colors.bg
+        custom_catpuccin.normal.c.fg = colors.fg
 
         -- configure lualine with modified theme
         lualine.setup({
             options = {
-                theme = "catppuccin",
+                theme = custom_catpuccin,
             },
             sections = {
                 lualine_x = {
