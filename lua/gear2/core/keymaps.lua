@@ -24,3 +24,7 @@ vim.keymap.set("n", "<leader>ir", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "-", "<cmd>NvimTreeToggle<CR>", { noremap = true })
+
+-- move lines up(ctrl + k) and down (ctrl + j)
+vim.keymap.set("n", "<C-k>", "<cmd>m-2<CR>", { noremap = true })
+vim.keymap.set("n", "<C-j>", "<cmd>m+1<CR>", { noremap = true })

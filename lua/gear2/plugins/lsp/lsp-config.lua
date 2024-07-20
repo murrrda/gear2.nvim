@@ -118,8 +118,10 @@ return {
             cmd = {
                 "clangd",
                 "--clang-tidy",
+                "--background-index",
                 "--malloc-trim",
                 "--fallback-style=WebKit",
+                "--log=verbose",
             },
         })
 
@@ -153,20 +155,20 @@ return {
             },
         })
 
-        local typescript_path = "/usr/lib64/node_modules/@vue/cli/node_modules/typescript/lib"
-        local vue_language_server_path = "/usr/lib64/node_modules/@vue/language-server"
-        local typescript_plugin_path = "/usr/lib64/node_modules/@vue/typescript-plugin"
+        local typescript_path = "/usr/local/lib/node_modules/typescript/lib"
+        local vue_language_server_path = "/usr/local/lib/node_modules/@vue/language-server"
+        local typescript_plugin_path = "/usr/local/lib/node_modules/@vue/typescript-plugin"
 
         lspconfig["volar"].setup({
-            filetypes = { "html", "vue" },
-            init_options = {
-                vue = {
-                    hybridMode = true,
-                },
-                typescript = {
-                    tsdk = typescript_path,
-                },
-            },
+            -- filetypes = { "html", "vue" },
+            -- init_options = {
+            --     vue = {
+            --         hybridMode = true,
+            --     },
+            --     typescript = {
+            --         tsdk = typescript_path,
+            --     },
+            -- },
         })
 
         lspconfig["tsserver"].setup({
@@ -174,7 +176,7 @@ return {
                 plugins = {
                     {
                         name = "@vue/typescript-plugin",
-                        location = typescript_plugin_path,
+                        location = vue_language_server_path,
                         languages = { "javascript", "typescript", "vue" },
                     },
                 },

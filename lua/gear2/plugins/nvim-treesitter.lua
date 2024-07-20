@@ -30,6 +30,7 @@ return {
                 "lua",
                 "vim",
                 "vimdoc",
+                "markdown",
                 "query",
                 "vue",
                 "cpp",
