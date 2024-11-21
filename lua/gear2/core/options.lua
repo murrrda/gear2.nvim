@@ -1,5 +1,7 @@
 local vo = vim.opt
 
+vo.guicursor = "a:Block"
+
 -- relative numbers
 vo.number = true
 vo.relativenumber = true
@@ -58,6 +60,8 @@ vo.splitright = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+vo.ttyfast = true
 
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })

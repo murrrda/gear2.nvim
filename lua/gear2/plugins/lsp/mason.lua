@@ -34,7 +34,7 @@ return {
                 "clangd",
                 "tailwindcss",
                 "lua_ls",
-                "tsserver",
+                "ts_ls",
                 "volar",
                 "bashls",
                 "gopls",

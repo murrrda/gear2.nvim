@@ -160,23 +160,23 @@ return {
         local typescript_plugin_path = "/usr/local/lib/node_modules/@vue/typescript-plugin"
 
         lspconfig["volar"].setup({
-            -- filetypes = { "html", "vue" },
-            -- init_options = {
-            --     vue = {
-            --         hybridMode = true,
-            --     },
-            --     typescript = {
-            --         tsdk = typescript_path,
-            --     },
-            -- },
+            filetypes = { "html", "vue" },
+            init_options = {
+                vue = {
+                    hybridMode = true,
+                },
+                typescript = {
+                    tsdk = typescript_path,
+                },
+            },
         })
 
-        lspconfig["tsserver"].setup({
+        lspconfig["ts_ls"].setup({
             init_options = {
                 plugins = {
                     {
                         name = "@vue/typescript-plugin",
-                        location = vue_language_server_path,
+                        location = typescript_plugin_path,
                         languages = { "javascript", "typescript", "vue" },
                     },
                 },
@@ -191,6 +191,42 @@ return {
         lspconfig["gopls"].setup({
             capabilities = def_capabilities,
             on_attach = on_attach,
+            settings = {
+                gopls = {
+                    gofumpt = true,
+                    codelenses = {
+                        gc_details = false,
+                        generate = true,
+                        regenerate_cgo = true,
+                        run_govulncheck = true,
+                        test = true,
+                        tidy = true,
+                        upgrade_dependency = true,
+                        vendor = true,
+                    },
+                    hints = {
+                        assignVariableTypes = false,
+                        compositeLiteralFields = true,
+                        compositeLiteralTypes = true,
+                        constantValues = true,
+                        functionTypeParameters = true,
+                        parameterNames = true,
+                        rangeVariableTypes = true,
+                    },
+                    analyses = {
+                        fieldalignment = true,
+                        nilness = true,
+                        unusedparams = true,
+                        unusedwrite = true,
+                        useany = true,
+                    },
+                    usePlaceholders = true,
+                    completeUnimported = true,
+                    staticcheck = true,
+                    directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+                    semanticTokens = true,
+                },
+            },
         })
     end,
 }
