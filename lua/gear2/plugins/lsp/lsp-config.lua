@@ -131,11 +131,6 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["jdtls"].setup({
-            capabilities = def_capabilities,
-            on_attach = on_attach,
-        })
-
         lspconfig["lua_ls"].setup({
             capabilities = def_capabilities,
             on_attach = on_attach,

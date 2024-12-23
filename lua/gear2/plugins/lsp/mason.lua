@@ -23,7 +23,6 @@ return {
                 },
             },
             registries = {
-                "github:nvim-java/mason-registry",
                 "github:mason-org/mason-registry",
             },
         })
@@ -38,16 +37,10 @@ return {
                 "volar",
                 "bashls",
                 "gopls",
-                "jdtls",
                 "pyright",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
-            handlers = {
-                ["jdtls"] = function()
-                    require("java").setup()
-                end,
-            },
         })
 
         mason_tool_installer.setup({

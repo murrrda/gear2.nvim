@@ -39,8 +39,6 @@ return {
                 "html",
                 "tsx",
                 "css",
-                "bash",
-                "java",
                 "go",
             },
             incremental_selection = {
