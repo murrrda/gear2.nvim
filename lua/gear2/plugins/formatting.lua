@@ -8,6 +8,7 @@ return {
         conform.setup({
             formatters_by_ft = {
                 cpp = { "clangformat" },
+                python = { "isort", "black" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 vue = { "prettier" },

@@ -120,6 +120,7 @@ return {
                 "--clang-tidy",
                 "--background-index",
                 "--malloc-trim",
+                "--offset-encoding=utf-8",
                 "--fallback-style=WebKit",
                 "--log=verbose",
             },
@@ -214,7 +215,6 @@ return {
                         rangeVariableTypes = true,
                     },
                     analyses = {
-                        fieldalignment = true,
                         nilness = true,
                         unusedparams = true,
                         unusedwrite = true,
@@ -227,6 +227,11 @@ return {
                     semanticTokens = true,
                 },
             },
+        })
+
+        lspconfig["pyright"].setup({
+            capabilities = def_capabilities,
+            on_attach = on_attach,
         })
     end,
 }
