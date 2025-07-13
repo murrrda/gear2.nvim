@@ -7,9 +7,19 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
+
+        require("mason").setup()
+
+        -- import mason-lspconfig
+        local mason_lspconfig = require("mason-lspconfig")
+
+        local mason_tool_installer = require("mason-tool-installer")
 
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -97,22 +107,65 @@ return {
 
         vim.lsp.inlay_hint.enable(true)
 
+        -- Diagnostic Config
+        -- See :help vim.diagnostic.Opts
+        vim.diagnostic.config({
+            severity_sort = true,
+            float = { border = "rounded", source = "if_many" },
+            underline = { severity = vim.diagnostic.severity.ERROR },
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = " ",
+                    [vim.diagnostic.severity.WARN] = " ",
+                    [vim.diagnostic.severity.INFO] = "󰠠 ",
+                    [vim.diagnostic.severity.HINT] = " ",
+                },
+            } or {},
+            virtual_text = {
+                source = "if_many",
+                spacing = 2,
+                format = function(diagnostic)
+                    local diagnostic_message = {
+                        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+                        [vim.diagnostic.severity.WARN] = diagnostic.message,
+                        [vim.diagnostic.severity.INFO] = diagnostic.message,
+                        [vim.diagnostic.severity.HINT] = diagnostic.message,
+                    }
+                    return diagnostic_message[diagnostic.severity]
+                end,
+            },
+        })
         -- used to enable autocompletion (assign to every lsp server config)
         local def_capabilities = cmp_nvim_lsp.default_capabilities()
 
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        end
-
-        lspconfig["tailwindcss"].setup({
-            capabilities = def_capabilities,
-            on_attach = on_attach,
+        mason_tool_installer.setup({
+            ensure_installed = {
+                "prettier", -- js formatter
+                "stylua", -- lua formatter
+                "clang-format", -- c++ formatter
+                "eslint_d", -- js linter
+                "golangci-lint", -- go linter
+            },
+        })
+        mason_lspconfig.setup({
+            -- list of servers for mason to install
+            ensure_installed = {
+                "clangd",
+                "tailwindcss",
+                "lua_ls",
+                "ts_ls",
+                "volar",
+                "bashls",
+                "gopls",
+                "pyright",
+            },
         })
 
-        lspconfig["clangd"].setup({
+        vim.lsp.config("*", {
+            -- any custom settings...
+        })
+
+        vim.lsp.config("clangd", {
             capabilities = def_capabilities,
             on_attach = on_attach,
             cmd = {
@@ -126,67 +179,9 @@ return {
             },
         })
 
-        lspconfig["bashls"].setup({
+        vim.lsp.config("gopls", {
             capabilities = def_capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig["lua_ls"].setup({
-            capabilities = def_capabilities,
-            on_attach = on_attach,
-            settings = { -- custom settings for lua
-                Lua = {
-                    -- make the language server recognize "vim" global
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        -- make language server aware of runtime files
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        },
-                    },
-                },
-            },
-        })
-
-        local typescript_path = "/usr/local/lib/node_modules/typescript/lib"
-        local vue_language_server_path = "/usr/local/lib/node_modules/@vue/language-server"
-        local typescript_plugin_path = "/usr/local/lib/node_modules/@vue/typescript-plugin"
-
-        lspconfig["volar"].setup({
-            filetypes = { "html", "vue" },
-            init_options = {
-                vue = {
-                    hybridMode = true,
-                },
-                typescript = {
-                    tsdk = typescript_path,
-                },
-            },
-        })
-
-        lspconfig["ts_ls"].setup({
-            init_options = {
-                plugins = {
-                    {
-                        name = "@vue/typescript-plugin",
-                        location = typescript_plugin_path,
-                        languages = { "javascript", "typescript", "vue" },
-                    },
-                },
-            },
-            filetypes = {
-                "javascript",
-                "typescript",
-                "vue",
-            },
-        })
-
-        lspconfig["gopls"].setup({
-            capabilities = def_capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             settings = {
                 gopls = {
                     gofumpt = true,
@@ -222,11 +217,6 @@ return {
                     semanticTokens = true,
                 },
             },
-        })
-
-        lspconfig["pyright"].setup({
-            capabilities = def_capabilities,
-            on_attach = on_attach,
         })
     end,
 }
