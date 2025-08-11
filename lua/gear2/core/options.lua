@@ -27,7 +27,7 @@ vo.signcolumn = "yes"
 -- Enable break indent
 vo.breakindent = true
 
--- vo.cursorline = true
+vo.cursorline = true
 
 -- use system clipboard as default register
 vo.clipboard = "unnamedplus"

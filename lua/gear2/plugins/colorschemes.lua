@@ -1,5 +1,26 @@
 return {
     {
+        "projekt0n/github-nvim-theme",
+        name = "github-theme",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("github-theme").setup({
+                -- ...
+            })
+
+            vim.cmd("colorscheme github_light")
+        end,
+    },
+    {
+        "Mofiqul/vscode.nvim",
+        config = function()
+            -- Load the colorscheme here
+            -- vim.cmd.colorscheme("vscode")
+            -- vim.o.background = "light"
+        end,
+    },
+    {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
@@ -16,13 +37,13 @@ return {
     },
     {
         "folke/tokyonight.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        -- lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        -- priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- Load the colorscheme here
             -- You can configure highlights by doing something like
-            vim.cmd.hi("Comment gui=none")
-            vim.cmd.colorscheme("tokyonight")
+            -- vim.cmd.hi("Comment gui=none")
+            -- vim.cmd.colorscheme("tokyonight-storm")
         end,
     },
     {
