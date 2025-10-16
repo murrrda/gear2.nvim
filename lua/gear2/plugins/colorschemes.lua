@@ -13,14 +13,6 @@ return {
         end,
     },
     {
-        "Mofiqul/vscode.nvim",
-        config = function()
-            -- Load the colorscheme here
-            -- vim.cmd.colorscheme("vscode")
-            -- vim.o.background = "light"
-        end,
-    },
-    {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
@@ -32,7 +24,7 @@ return {
                 },
             })
             -- Load the colorscheme here
-            -- vim.cmd.colorscheme("rose-pine-moon")
+            vim.cmd.colorscheme("rose-pine-moon")
         end,
     },
     {
